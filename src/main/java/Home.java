@@ -6,6 +6,5 @@ public class Home {
     public static void main(String[] args)throws Exception{
         LoadingHome home = new LoadingHome();
         home.homeScreenLoading();
-        home.options();
     }
 }

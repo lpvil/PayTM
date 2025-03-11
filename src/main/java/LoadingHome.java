@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
 public class LoadingHome {
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     Deposit addMoney = new Deposit();
     Withdraw withdrawMoney = new Withdraw();
+    ViewBalance balance = new ViewBalance();
     //load main home screen
     public void homeScreenLoading() {
         try {
@@ -12,23 +13,23 @@ public class LoadingHome {
                 System.out.print(".");
                 Thread.sleep(300);
             }
+            options();
         }catch (InterruptedException e){
             e.printStackTrace();
         }
         System.out.println("\n___Welcome to Home Screen___");
     }
     public void options(){
-
-        System.out.println("1.Deposit\n" +
-                           "2.Withdraw\n3.Exit");
-        String prompt = "Please choose one of the following options:\n";
         //this takes the string and iterates to print out a character at a time
-        //sets index to 0; check is index is less that the length of prompt char lenght; adds 1 to index
+        //sets index to 0; check is index is less that the length of prompt char length; adds 1 to index
         //prints out prompt char at index, thread.sleep delays printing by 50 milliseconds
+        System.out.println("\n1.Deposit\n" +
+                           "2.Withdraw\n3.View Balance\n4.Exit");
+        String prompt = "Please choose one of the following options:\n";
         try {
             for (int i= 0; i < prompt.length(); i++){
                 System.out.print(prompt.charAt(i));
-                Thread.sleep(80);}
+                Thread.sleep(20);}
         }catch(InterruptedException f) {
             f.printStackTrace();
         }
@@ -41,11 +42,13 @@ public class LoadingHome {
                 withdrawMoney.withdrawScreen();
                 break;
             case 3:
+                balance.balanceScreen();
+                break;
             case 4: try{System.out.println("Thank you for choosing PayTM©\n" +
                     "see you soon!");
-                Thread.sleep(40);}
+                Thread.sleep(40);
+            break;}
             catch(InterruptedException g) {g.printStackTrace();}
-                break;
             default:
                 System.out.println("Error Please enter a valid option!");
                 options();
