@@ -11,15 +11,15 @@ public class Deposit {
 
 //constructor allows private values to be accessed outside this class
     public Deposit() {
-        this.depositAmount = depositAmount;
-        this.response = response;
+        this.depositAmount = 0.0;
+        this.response = "";
     }
 
     //prompt user with deposit screen
     //takes user input
     public void depositScreen() {
-        boolean screen = true;
-       while(true) {
+        boolean continueDeposit = true;
+       while(continueDeposit) {
            System.out.println("---Deposit-Screen---");
            System.out.println("How much would you like to deposit?: ");
            depositAmount = scanner.nextDouble();
@@ -30,8 +30,8 @@ public class Deposit {
            response = scanner.nextLine().toUpperCase();
 
            if (response.equals("Y")) {
-                screen = false;
-               deposit();
+                continueDeposit = false;
+               deposit();//process deposit
            }
        }
     }
@@ -41,26 +41,13 @@ public class Deposit {
             try {
                 FileWriter fl = new FileWriter(file,true);//true appends instead of overwirting it
                 BufferedWriter bf = new BufferedWriter(fl);
-                bf.write(("\n"+ depositAmount));
+                bf.write(("\n"+ "$" + depositAmount));
 
                 bf.close();
                 fl.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            System.out.println("You have deposited an amount of: " + depositAmount);
-            System.out.println("Would you like to make another deposit?(Y/N):");
-            String makeAnotherDesposit = scanner.nextLine().toUpperCase();
-                if(makeAnotherDesposit.startsWith("Y")){
-            depositScreen();
+            System.out.println("You have deposited an amount of: $" + depositAmount);
         }
-                else{
-                   System.out.println("Deposit cancelled\nWould you like to go back?(Y/N): ");
-                   String answer = scanner.nextLine().toUpperCase();
-                   if(answer.equals("Y")){
-                       LoadingHome home = new LoadingHome();
-                       home.options();
-                   }
-                }
-        }
-    }
+}
