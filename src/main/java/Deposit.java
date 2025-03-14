@@ -9,6 +9,7 @@ public class Deposit {
     private double depositAmount;
     private String response;
 
+
 //constructor allows private values to be accessed outside this class
     public Deposit() {
         this.depositAmount = 0.0;
@@ -32,6 +33,13 @@ public class Deposit {
            if (response.equals("Y")) {
                 continueDeposit = false;
                deposit();//process deposit
+               //ask user if they want to make another deposit
+               System.out.println("would you like to make another deposit?: (Y/N)");
+               String makeAnotherDeposit = scanner.nextLine().toUpperCase();
+               if(makeAnotherDeposit.equals("N")){
+                   continueDeposit = false;//exit loop
+                   goBackorExit();//askt to go back or exit
+               }
            }
        }
     }
@@ -49,5 +57,16 @@ public class Deposit {
                 e.printStackTrace();
             }
             System.out.println("You have deposited an amount of: $" + depositAmount);
+        }
+        public void goBackorExit(){
+            System.out.println("ok Would you like to back to the main menu?: (Y/N)");
+            String answer = scanner.nextLine().toUpperCase();
+            if(answer.equals("Y")){
+
+            }
+            else{
+                System.out.println("thanks for stopping by");
+                System.exit(0);//exits program
+            }
         }
 }
