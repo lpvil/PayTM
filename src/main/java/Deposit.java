@@ -62,7 +62,8 @@ public class Deposit {
             System.out.println("ok Would you like to back to the main menu?: (Y/N)");
             String answer = scanner.nextLine().toUpperCase();
             if(answer.equals("Y")){
-
+            LoadingHome goBack = new LoadingHome();
+            goBack.options();
             }
             else{
                 System.out.println("thanks for stopping by");

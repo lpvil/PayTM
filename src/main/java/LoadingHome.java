@@ -2,9 +2,6 @@ import java.util.Scanner;
 
 public class LoadingHome {
     static Scanner scanner = new Scanner(System.in);
-    Deposit addMoney = new Deposit();
-    Withdraw withdrawMoney = new Withdraw();
-    ViewBalance balance = new ViewBalance();
     //load main home screen
     public void homeScreenLoading() {
         try {
@@ -36,17 +33,21 @@ public class LoadingHome {
         int num = scanner.nextInt();
         switch (num) {
             case 1:
+                Deposit addMoney = new Deposit();
                 addMoney.depositScreen();
                 break;
             case 2:
+                Withdraw withdrawMoney = new Withdraw();
                 withdrawMoney.withdrawScreen();
                 break;
             case 3:
+                ViewBalance balance = new ViewBalance();
                 balance.balanceScreen();
                 break;
             case 4: try{System.out.println("Thank you for choosing PayTM©\n" +
                     "see you soon!");
                 Thread.sleep(40);
+                System.exit(0);
             break;}
             catch(InterruptedException g) {g.printStackTrace();}
             default:
