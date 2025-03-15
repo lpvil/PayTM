@@ -36,9 +36,12 @@ public class Deposit {
                //ask user if they want to make another deposit
                System.out.println("would you like to make another deposit?: (Y/N)");
                String makeAnotherDeposit = scanner.nextLine().toUpperCase();
-               if(makeAnotherDeposit.equals("N")){
-                   continueDeposit = false;//exit loop
-                   goBackorExit();//askt to go back or exit
+               if(makeAnotherDeposit.equals("Y")){
+                   continueDeposit = true;
+               }
+               else{
+                 continueDeposit = false;
+                 goBackorExit();
                }
            }
        }
