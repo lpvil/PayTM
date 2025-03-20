@@ -20,6 +20,7 @@ public class LoadingHome {
         //this takes the string and iterates to print out a character at a time
         //sets index to 0; check is index is less that the length of prompt char length; adds 1 to index
         //prints out prompt char at index, thread.sleep delays printing by 50 milliseconds
+        System.out.println("=========================");
         System.out.println("\n1.Deposit\n" +
                            "2.Withdraw\n3.View Balance\n4.Exit");
         String prompt = "Please choose one of the following options:\n";

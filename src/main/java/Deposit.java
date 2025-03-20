@@ -12,7 +12,7 @@ public class Deposit {
 
 //constructor allows private values to be accessed outside this class
     public Deposit() {
-        this.depositAmount = 0.0;
+        this.depositAmount = 0.00;
         this.response = "";
     }
 
@@ -21,6 +21,7 @@ public class Deposit {
     public void depositScreen() {
         boolean continueDeposit = true;
        while(continueDeposit) {
+           System.out.println("=======================");
            System.out.println("---Deposit-Screen---");
            System.out.println("How much would you like to deposit?: ");
            depositAmount = scanner.nextDouble();
